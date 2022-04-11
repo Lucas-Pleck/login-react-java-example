@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  testdb:
+    image: mysql:8.0.17
+    volumes:
+      - ./testdb.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: test123*
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"
